@@ -23,6 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
+# Only to make swagger more convenient
 class UserSimpleSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

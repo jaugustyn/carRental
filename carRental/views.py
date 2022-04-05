@@ -15,16 +15,6 @@ from knox.views import LoginView as KnoxLoginView
 # Create your views here.
 
 
-class UserList(generics.GenericAPIView):
-    serializer_class = UserSerializer
-
-    @staticmethod
-    def get(request, *args, **kwargs):
-        print(request.user)
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data)
-
-
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
