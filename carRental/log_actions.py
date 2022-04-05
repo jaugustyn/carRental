@@ -8,7 +8,7 @@ class OperationLogs:
     @staticmethod
     def log_addition(obj):
         LogEntry.objects.log_action(
-            user_id=obj.created_by,
+            user_id=obj.created_by.id,
             content_type_id=get_content_type_for_model(obj).pk,
             object_id=obj.pk,
             object_repr=force_str(obj),
@@ -18,7 +18,7 @@ class OperationLogs:
     @staticmethod
     def log_change(obj):
         LogEntry.objects.log_action(
-            user_id=obj.updated_by,
+            user_id=obj.updated_by.id,
             content_type_id=get_content_type_for_model(obj).pk,
             object_id=obj.pk,
             object_repr=force_str(obj),
@@ -28,7 +28,7 @@ class OperationLogs:
     @staticmethod
     def log_deletion(obj):
         LogEntry.objects.log_action(
-            user_id=obj.created_by,
+            user_id=obj.created_by.id,
             content_type_id=get_content_type_for_model(obj).pk,
             object_id=obj.pk,
             object_repr=force_str(obj),

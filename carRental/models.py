@@ -4,6 +4,7 @@ import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.admin.models import LogEntry
+from django.contrib.auth.models import User
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 from django.http import HttpRequest
@@ -31,9 +32,9 @@ DELETION = 3
 
 
 class TraceableModel(models.Model):
-    created_by = models.CharField(max_length=30)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_by = models.CharField(max_length=30)
+    updated_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="updated_by", null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
