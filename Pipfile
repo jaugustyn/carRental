@@ -9,6 +9,7 @@ djangorestframework = "*"
 markdown = "*"
 pyyaml = "*"
 uritemplate = "*"
+django-rest-knox = "*"
 
 [dev-packages]
 

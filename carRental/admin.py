@@ -37,8 +37,6 @@ class LogEntryAdmin(admin.ModelAdmin):
     date_hierarchy = 'action_time'
 
     list_filter = [
-        'user',
-        'content_type',
         'action_flag'
     ]
 
