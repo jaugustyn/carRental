@@ -2,7 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+carRental/migrations
+.idea/
 # C extensions
 *.so
 
